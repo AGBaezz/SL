@@ -1,0 +1,62 @@
+#include <Servo.h>
+ 
+Servo myservo;  // crea el objeto servo
+ 
+int pos = 0;    // posicion del servo
+ 
+void setup() {
+   myservo.attach(9);  // vincula el servo al pin digital 9
+}
+ 
+void loop() {
+   //varia la posicion de 0 a 180, con esperas de 15ms
+   for (pos = 0; pos <= 180; pos += 1) 
+   {
+      myservo.write(pos);              
+      delay(15);                       
+   }
+ 
+   //varia la posicion de 0 a 180, con esperas de 15ms
+   for (pos = 180; pos >= 0; pos -= 1) 
+   {
+      myservo.write(pos);              
+      delay(15);                       
+   }
+   //aqui hablaba de girar el servomotor a 180 grados y que volviera a su forma original
+--------------------------------------------------------------------------
+//propuesta 2
+#include <Servo.h>
+
+Servo motor1; // DECLARAR SERVO 1
+int grados1 = 0; // GRADOS DEL SERVO 1
+
+void setup() { 
+motor1.attach (6); // PIN DIGITAL PWM 6 DONDE ESTÁ CONECTADO EL SERVO 1
+}
+
+void loop() {
+
+grados1 = 0;
+motor1.write (grados1); // ENVIAR LOS GRADOS AL SERVO 1
+delay(1000);	// ESPERA 1 SEGUNDO EN LA POSICIÓN FIJADA
+
+grados1 = 60;
+motor1.write (grados1); 
+delay(1000);
+
+grados1 = 120;
+motor1.write (grados1);
+delay(1000);
+
+grados1 = 180;
+motor1.write (grados1); 
+delay(1000);
+
+grados1 = 120;
+motor1.write (grados1); 
+delay(1000);
+
+grados1 = 60;
+motor1.write (grados1); 
+delay(1000);
+}
